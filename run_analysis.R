@@ -1,4 +1,4 @@
-#Setting neccesary libraries
+#Setting necessary libraries
 library(dplyr)
 
 #Getting the dataset
@@ -11,13 +11,13 @@ activities <- read.table("UCI HAR Dataset/activity_labels.txt",
 subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt", 
                            col.names = "Subject")
 x_test <- read.table("UCI HAR Dataset/test/X_test.txt", 
-                     col.names = features$functions)
+                     col.names = features$Function)
 y_test <- read.table("UCI HAR Dataset/test/y_test.txt", 
                      col.names = "Code")
 subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt", 
                             col.names = "Subject")
 x_train <- read.table("UCI HAR Dataset/train/X_train.txt", 
-                      col.names = features$functions)
+                      col.names = features$Function)
 y_train <- read.table("UCI HAR Dataset/train/y_train.txt", 
                       col.names = "Code")
 
@@ -28,10 +28,13 @@ y_train <- read.table("UCI HAR Dataset/train/y_train.txt",
 x<-rbind(x_test,x_train)
 y<-rbind(y_test,y_train)
 s<-rbind(subject_test,subject_train)
-NewData<-cbind(s,y,x)
+Step1<-cbind(s,y,x)
 
 ##Step 2:
-#Extracts only the measurements on the mean and standard deviation for each measurement.
+#Extracts only the measurements on the mean and standard deviation (std) for each measurement.
+
+#Separating relevant data
+Step2<-Step1 %>% select(Subject, Code, contains("mean"), contains("std"))
 
 ##Step 3:
 #Uses descriptive activity names to name the activities in the data set
