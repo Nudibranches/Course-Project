@@ -6,7 +6,7 @@ From Miguel Barranco (Nudibranches) Repository
 [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 ### Relevant Files
-- `Code-Book.html` <- Description of variables and process for assigment completition. 
+- `Code-Book.md` <- Description of variables and process for assigment completition. 
 - `run_analysis.R` <- Script that performs the requested 5 steps.
 - `CleanDataSet.txt` <- Excersice's final output. 
 
